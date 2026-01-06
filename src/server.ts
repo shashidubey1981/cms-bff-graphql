@@ -1,11 +1,12 @@
+// Load environment variables FIRST - before any imports that depend on them
+import dotenv from 'dotenv'
+dotenv.config({ path: '.env.local' }) // Try .env.local first
+dotenv.config() // Fallback to .env
+
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import dotenv from 'dotenv'
 import contentstackRoutes from './routes/contentstack.routes'
-
-// Load environment variables
-dotenv.config()
 
 const app: Application = express()
 const PORT = process.env.PORT || 3000
@@ -39,7 +40,7 @@ app.get('/', (req: Request, res: Response) => {
     endpoints: {
       health: '/health',
       entries: '/api/entries/',
-      entrybyurl: '/api/entrybyurl',
+      personalizedConfig: '/api/personalized-config',
       personalizeSdk: '/api/personalize-sdk'
     }
   })

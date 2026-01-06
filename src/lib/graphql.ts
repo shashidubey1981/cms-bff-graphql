@@ -56,9 +56,7 @@ export function createGetAllEntriesQuery(
   `;
 }
 
-export function createGetPersonalizedConfigQuery(
-    contentTypeUid: string,
-): string {
+export function createGetPersonalizedConfigQuery(): string {
     return `query MyQuery {
   all_personalize_config {
     items {

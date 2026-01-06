@@ -6,10 +6,10 @@
 import contentstack from '@contentstack/delivery-sdk';
 
 // Validate environment variables
-const apiKey = process.env.NEXT_PUBLIC_CONTENTSTACK_API_KEY;
-const deliveryToken = process.env.NEXT_PUBLIC_CONTENTSTACK_DELIVERY_TOKEN;
-const environment = process.env.NEXT_PUBLIC_CONTENTSTACK_ENVIRONMENT;
-const regionEnv = process.env.NEXT_PUBLIC_CONTENTSTACK_REGION;
+const apiKey = process.env.CONTENTSTACK_API_KEY;
+const deliveryToken = process.env.CONTENTSTACK_DELIVERY_TOKEN;
+const environment = process.env.CONTENTSTACK_ENVIRONMENT;
+const regionEnv = process.env.CONTENTSTACK_REGION;
 
 if (!apiKey || !deliveryToken || !environment) {
   throw new Error(
@@ -32,6 +32,6 @@ export const contentstackConfig = {
   deliveryToken,
   environment,
   region: regionEnv || 'us',
-  graphqlUrl: `${process.env.NEXT_PUBLIC_CONTENTSTACK_GRAPHQL_URL}/${apiKey}?environment=${environment}`,
+  graphqlUrl: `${process.env.CONTENTSTACK_GRAPHQL_URL}/${apiKey}?environment=${environment}`,
 };
 
